@@ -32,7 +32,7 @@ import uk.ac.tees.mad.w9624019.newmealapp.screens.ProfileScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SearchScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SettingScreen
 import uk.ac.tees.mad.w9624019.newmealapp.ui.details.MealDetailsViewModel
-import uk.ac.tees.mad.w9624019.newmealapp.ui.meals.MealsCategoriesScreen
+import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.meals.MealsCategoriesScreen
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.details.MealDetailsScreen
 
 @RequiresApi(Build.VERSION_CODES.O)

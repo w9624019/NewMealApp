@@ -1,4 +1,4 @@
-package uk.ac.tees.mad.w9624019.newmealapp.ui.meals
+package uk.ac.tees.mad.w9624019.newmealapp.viewmodels.meals
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image

@@ -1,7 +1,6 @@
 package uk.ac.tees.mad.w9624019.newmealapp.navigation
 
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -22,7 +21,7 @@ import uk.ac.tees.mad.w9624019.newmealapp.screens.SettingScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SplashScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.UserProfileScreen
 import uk.ac.tees.mad.w9624019.newmealapp.ui.details.MealDetailsViewModel
-import uk.ac.tees.mad.w9624019.newmealapp.ui.meals.MealsCategoriesScreen
+import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.meals.MealsCategoriesScreen
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.details.MealDetailsScreen
 import uk.ac.tees.mad.w9624019.newmealapp.widgets.BottomNavbar
 
