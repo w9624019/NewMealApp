@@ -5,8 +5,6 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.rounded.Notifications
-import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
@@ -27,9 +25,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import uk.ac.tees.mad.w9624019.newmealapp.model.BottomNavItem
 import uk.ac.tees.mad.w9624019.newmealapp.navigation.Routes
-import uk.ac.tees.mad.w9624019.newmealapp.screens.NotificationScreen
-import uk.ac.tees.mad.w9624019.newmealapp.screens.ProfileScreen
-import uk.ac.tees.mad.w9624019.newmealapp.screens.SearchScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SettingScreen
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.details.MealDetailsViewModel
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.meals.MealsCategoriesScreen
@@ -61,15 +56,6 @@ fun BottomNavbar(navController: NavHostController) {
                 val viewModel: MealDetailsViewModel = viewModel()
                 MealDetailsScreen(viewModel.mealState.value)
             }
-            composable(Routes.SearchThread.route) {
-                SearchScreen(navController)
-            }
-            composable(Routes.Notification.route) {
-                NotificationScreen()
-            }
-            composable(Routes.Profile.route) {
-                ProfileScreen(navController)
-            }
             composable(Routes.Setting.route) {
                 SettingScreen(navController)
             }
@@ -85,8 +71,6 @@ fun CustomBottomNavBar(navController: NavHostController) {
 
     val bottomNavItems = listOf(
         BottomNavItem("Home", Routes.Home.route, Icons.Rounded.Home),
-        BottomNavItem("Notification", Routes.Notification.route, Icons.Rounded.Notifications),
-        BottomNavItem("Profile", Routes.Profile.route, Icons.Rounded.Person),
         BottomNavItem("Settings", Routes.Setting.route, Icons.Rounded.Settings)
     )
 

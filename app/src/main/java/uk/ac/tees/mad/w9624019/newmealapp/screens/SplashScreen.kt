@@ -57,7 +57,7 @@ fun SplashScreen(controller: NavHostController) {
     ConstraintLayout(constraints, modifier = Modifier.fillMaxSize()) {
         val (image) = createRefs()
         Image(
-            painter = painterResource(id = R.drawable.baseline_fastfood_24),
+            painter = painterResource(id = R.drawable.ic_check_icon),
             contentDescription = "app_logo",
             modifier = Modifier
                 .height(100.dp)

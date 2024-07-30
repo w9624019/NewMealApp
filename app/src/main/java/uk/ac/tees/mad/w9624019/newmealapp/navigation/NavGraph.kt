@@ -9,14 +9,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import uk.ac.tees.mad.w9624019.newmealapp.screens.EditProfileBioLinkScreen
-import uk.ac.tees.mad.w9624019.newmealapp.screens.EditProfileScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.LoginScreen
-import uk.ac.tees.mad.w9624019.newmealapp.screens.NotificationScreen
-import uk.ac.tees.mad.w9624019.newmealapp.screens.PrivacyScreen
-import uk.ac.tees.mad.w9624019.newmealapp.screens.ProfileScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.RegisterScreen
-import uk.ac.tees.mad.w9624019.newmealapp.screens.SearchScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SettingScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SplashScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.UserProfileScreen
@@ -55,24 +49,6 @@ fun NavGraph(navHostController: NavHostController) {
             val viewModel: MealDetailsViewModel = viewModel()
             MealDetailsScreen(viewModel.mealState.value)
         }
-        composable(Routes.Notification.route) {
-            NotificationScreen()
-        }
-        composable(Routes.SearchThread.route) {
-            SearchScreen(navHostController)
-        }
-        composable(Routes.Profile.route) {
-            ProfileScreen(navHostController)
-        }
-        composable(Routes.EditProfile.route) {
-            EditProfileScreen(navHostController)
-        }
-
-        composable(Routes.EditBioLinkProfile.route) {
-            val isEdit = it.arguments?.getString("data")
-            val value=it.arguments?.getString("value")
-            EditProfileBioLinkScreen(navHostController, isEdit == "true", value = value!!)
-        }
 
         composable(Routes.BottomNav.route) {
             BottomNavbar(navHostController)
@@ -84,10 +60,6 @@ fun NavGraph(navHostController: NavHostController) {
 
         composable(Routes.Register.route) {
             RegisterScreen(navHostController = navHostController)
-        }
-
-        composable(Routes.Privacy.route) {
-            PrivacyScreen(controller = navHostController)
         }
 
         composable(Routes.Setting.route) {

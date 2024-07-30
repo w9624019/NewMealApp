@@ -1,6 +1,5 @@
 package uk.ac.tees.mad.w9624019.newmealapp.widgets
 
-import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,8 +15,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
@@ -36,7 +33,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -124,26 +120,6 @@ fun ProfileButton(title: String, onTap: () -> Unit, modifier: Modifier) {
             style = TextStyle(textAlign = TextAlign.Center, color = Color.Black),
             modifier = Modifier.fillMaxSize()
         )
-    }
-}
-
-@Composable
-fun PickImage(modifier: Modifier, imageList: List<Uri>) {
-    LazyVerticalGrid(
-        horizontalArrangement = Arrangement.SpaceBetween,
-        columns = GridCells.Fixed(3),
-        modifier = modifier
-    ) {
-        items(imageList.size) {
-            Image(
-                painter = rememberAsyncImagePainter(model = imageList[it]),
-                contentDescription = "",
-                modifier = Modifier
-                    .height(100.dp)
-                    .width(100.dp),
-                contentScale = ContentScale.Fit
-            )
-        }
     }
 }
 
@@ -272,19 +248,6 @@ fun ReusableProfileScreen(
                 }
 
 
-
-                Image(
-                    painter = painterResource(id = R.drawable.ic_verified_icon),
-                    contentDescription = "verified",
-                    modifier = Modifier
-                        .constrainAs(verifiedIcon) {
-                            start.linkTo(userImage.start)
-                            bottom.linkTo(userImage.bottom)
-                        }
-                        .height(20.dp)
-                        .width(20.dp)
-                        .clip(CircleShape)
-                )
             }
         }
 
@@ -367,15 +330,6 @@ fun CustomBottomThreadInfoSheet(username: String) {
                     fontWeight = FontWeight.Bold,
                     color = Color.Black
                 )
-            )
-            Image(
-                painter = painterResource(id = R.drawable.ic_thread_icon),
-                contentDescription = "thread_icon",
-                modifier = Modifier
-                    .size(50.dp)
-                    .clip(
-                        CircleShape
-                    ),
             )
         }
         Spacer(modifier = Modifier.height(20.dp))

@@ -37,11 +37,9 @@ fun SettingScreen(controller: NavHostController) {
 
     val imageList = listOf(
         R.drawable.ic_invite_user_setting_icon,
-        R.drawable.ic_notification_setting_icon,
         R.drawable.ic_heart_icon,
         R.drawable.ic_lock_icon,
         R.drawable.ic_accessiblity_setting_icon,
-        R.drawable.ic_users_icon,
         R.drawable.ic_language_setting_icon,
         R.drawable.ic_help_seeting_icon,
         R.drawable.ic_about_setting_icon
