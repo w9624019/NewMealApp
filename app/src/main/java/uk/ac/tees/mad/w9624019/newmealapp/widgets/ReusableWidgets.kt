@@ -1,19 +1,15 @@
 package uk.ac.tees.mad.w9624019.newmealapp.widgets
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,7 +24,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
@@ -98,244 +93,12 @@ fun AuthBottomLabel(title: String, subTitle: String, modifier: Modifier) {
     Row {
         Text(
             text = title,
-            style = TextStyle(fontSize = 15.sp, fontWeight = FontWeight.Normal, color = Color.White)
+            style = TextStyle(fontSize = 15.sp, fontWeight = FontWeight.Normal, color = Color.Black)
         )
         BasicText(
             text = subTitle,
-            style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Bold, color = Color.White),
+            style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Bold, color = Color.Black),
             modifier = modifier
-        )
-    }
-}
-
-@Composable
-fun ProfileButton(title: String, onTap: () -> Unit, modifier: Modifier) {
-    OutlinedButton(
-        shape = RoundedCornerShape(5.dp),
-        onClick = onTap,
-        modifier = modifier.height(35.dp)
-    ) {
-        Text(
-            text = title,
-            style = TextStyle(textAlign = TextAlign.Center, color = Color.Black),
-            modifier = Modifier.fillMaxSize()
-        )
-    }
-}
-
-@Composable
-fun ReusableProfileScreen(
-    userProfileData: UserModel,
-    threadCallBack: () -> Unit,
-    callback1: () -> Unit,
-    callback2: () -> Unit,
-) {
-
-    val button1Title: String
-    val button2Title: String
-
-    if (FirebaseAuth.getInstance().currentUser!!.uid == userProfileData.uid) {
-        button1Title = "Edit Profile"
-        button2Title = "Share Profile"
-    } else {
-        button1Title = "Follow"
-        button2Title = "Mention"
-    }
-
-    ConstraintLayout(
-        modifier = Modifier.fillMaxWidth(),
-    ) {
-        val (profileCard, bio, profileButtons) = createRefs()
-
-        Box(
-            modifier = Modifier
-                .constrainAs(profileCard) {
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
-                    top.linkTo(parent.top)
-                }
-                .padding(start = 15.dp, end = 15.dp, top = 20.dp)
-        ) {
-            ConstraintLayout(
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                val (name, username, threadCard, userImage, verifiedIcon) = createRefs()
-
-                Text(
-                    text = userProfileData.name ?: "",
-                    style = TextStyle(
-                        fontSize = 25.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color.Black,
-                        fontFamily = FontFamily.Serif
-                    ),
-                    modifier = Modifier.constrainAs(name) {
-                        start.linkTo(parent.start)
-                        top.linkTo(parent.top)
-                    }
-                )
-
-                Text(
-                    text = userProfileData.username ?: "",
-                    style = TextStyle(
-                        fontSize = 15.sp,
-                        fontWeight = FontWeight.Medium,
-                        color = Color.Black,
-                    ),
-                    modifier = Modifier
-                        .constrainAs(username) {
-                            start.linkTo(parent.start)
-                            top.linkTo(name.bottom)
-                            top.linkTo(name.bottom)
-                            top.linkTo(name.bottom)
-                            top.linkTo(name.bottom)
-                        }
-                        .padding(top = 10.dp)
-                )
-
-                Card(
-                    modifier = Modifier
-                        .constrainAs(threadCard) {
-                            start.linkTo(username.end)
-                            top.linkTo(name.bottom)
-                        }
-                        .height(25.dp)
-                        .width(90.dp)
-                        .padding(top = 10.dp, start = 10.dp),
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
-                ) {
-                    Text(
-                        text = "threads.net",
-                        style = TextStyle(textAlign = TextAlign.Center),
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .clickable {
-                                threadCallBack()
-                            }
-                    )
-                }
-
-                if (userProfileData.imageUrl != null) {
-                    Image(
-                        painter = rememberAsyncImagePainter(
-                            model = userProfileData.imageUrl
-                        ),
-                        contentDescription = "user_image",
-                        modifier = Modifier
-                            .constrainAs(userImage) {
-                                top.linkTo(parent.top)
-                                end.linkTo(parent.end)
-                                bottom.linkTo(parent.bottom)
-                            }
-                            .height(80.dp)
-                            .width(80.dp)
-                            .clip(CircleShape)
-                    )
-                } else {
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_people_icon),
-                        contentDescription = "user_image",
-                        modifier = Modifier
-                            .constrainAs(userImage) {
-                                top.linkTo(parent.top)
-                                end.linkTo(parent.end)
-                                bottom.linkTo(parent.bottom)
-                            }
-                            .height(80.dp)
-                            .width(80.dp)
-                            .clip(CircleShape)
-                    )
-                }
-
-
-            }
-        }
-
-        Text(
-            text = userProfileData.bio ?: "",
-            style = TextStyle(
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.Black,
-            ),
-            modifier = Modifier
-                .constrainAs(bio) {
-                    start.linkTo(parent.start)
-                    top.linkTo(profileCard.bottom)
-                }
-                .padding(top = 10.dp, start = 15.dp)
-                .width(200.dp)
-        )
-
-        Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
-                .constrainAs(profileButtons) {
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
-                    top.linkTo(bio.bottom)
-                }
-                .padding(start = 15.dp, top = 20.dp, end = 10.dp)
-        ) {
-            ProfileButton(
-                title = button1Title, onTap = {
-                    callback1()
-                }, modifier = Modifier
-                    .weight(0.5f, false)
-                    .padding(end = 10.dp)
-            )
-            ProfileButton(
-                title = button2Title, onTap = {
-                    callback2()
-                }, modifier = Modifier
-                    .weight(0.5f, false)
-                    .padding(start = 10.dp)
-            )
-        }
-
-
-    }
-}
-
-
-@Composable
-fun CustomBottomThreadInfoSheet(username: String) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .then(Modifier.padding(vertical = 20.dp, horizontal = 10.dp))
-    ) {
-        Box(
-            modifier = Modifier
-                .height(4.dp)
-                .width(30.dp)
-                .background(color = Color.Gray)
-                .align(alignment = Alignment.CenterHorizontally)
-                .clip(
-                    RoundedCornerShape(100.dp)
-                )
-        ) {
-        }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(60.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = "threads.net",
-                style = TextStyle(
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.Black
-                )
-            )
-        }
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            text = "Soon, you'll be able to follow and interact with people on other fediverse platforms, like Mastodon. They can also find you with full username @${username}@threads.net",
-            style = TextStyle(fontSize = 15.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
         )
     }
 }

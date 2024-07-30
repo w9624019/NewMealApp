@@ -110,7 +110,7 @@ fun RegisterScreen(navHostController: NavHostController) {
         }
     }
 
-    Box(modifier = Modifier.background(color = Color.Black)) {
+    Box(modifier = Modifier.background(color = Color.White)) {
 
         Column(
             modifier = Modifier
@@ -127,7 +127,7 @@ fun RegisterScreen(navHostController: NavHostController) {
                     .clip(
                         CircleShape
                     )
-                    .background(Color.White)
+                    .background(Color.Cyan)
                     .clickable {
                         //check image permission
 

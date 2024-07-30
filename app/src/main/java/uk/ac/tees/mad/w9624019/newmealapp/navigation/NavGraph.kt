@@ -13,7 +13,6 @@ import uk.ac.tees.mad.w9624019.newmealapp.screens.LoginScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.RegisterScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SettingScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SplashScreen
-import uk.ac.tees.mad.w9624019.newmealapp.screens.UserProfileScreen
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.details.MealDetailsViewModel
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.meals.MealsCategoriesScreen
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.details.MealDetailsScreen
@@ -64,11 +63,6 @@ fun NavGraph(navHostController: NavHostController) {
 
         composable(Routes.Setting.route) {
             SettingScreen(controller = navHostController)
-        }
-
-        composable(Routes.UserProfile.route) {
-            val uid = it.arguments?.getString("data");
-            UserProfileScreen(controller = navHostController, uid = uid!!)
         }
 
     }

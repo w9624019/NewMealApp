@@ -114,10 +114,7 @@ fun MealCategory(meal: Category, navigationCallback: (String) -> Unit) {
                     .clickable {
                         isExpanded = !isExpanded
                     }
-
             )
-
-
         }
     }
 

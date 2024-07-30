@@ -16,37 +16,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import uk.ac.tees.mad.w9624019.newmealapp.R
 import uk.ac.tees.mad.w9624019.newmealapp.navigation.Routes
 import uk.ac.tees.mad.w9624019.newmealapp.util.Constant
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.AuthViewModel
 
 @Composable
 fun SettingScreen(controller: NavHostController) {
-    val titleList = listOf(
-        "Follow and invite friends",
-        "Notification",
-        "Your likes",
-        "Privacy",
-        "Accessibility",
-        "Account",
-        "Language",
-        "Help",
-        "About"
-    )
-
-    val imageList = listOf(
-        R.drawable.ic_invite_user_setting_icon,
-        R.drawable.ic_heart_icon,
-        R.drawable.ic_lock_icon,
-        R.drawable.ic_accessiblity_setting_icon,
-        R.drawable.ic_language_setting_icon,
-        R.drawable.ic_help_seeting_icon,
-        R.drawable.ic_about_setting_icon
-    )
 
     val authViewModel = AuthViewModel()
-
     Column(modifier = Constant.widthModifier) {
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -56,7 +33,7 @@ fun SettingScreen(controller: NavHostController) {
 
                 }) {
                     Text(
-                        text = "Log out", style = TextStyle(
+                        text = "Log out from the application", style = TextStyle(
                             fontSize = 20.sp, fontWeight = FontWeight.Normal, color = Color.Red
                         ), modifier = Constant.widthModifier
                             .padding(

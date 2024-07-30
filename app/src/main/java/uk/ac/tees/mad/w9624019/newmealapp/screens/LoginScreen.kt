@@ -44,15 +44,11 @@ import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.AuthViewModel
 fun LoginScreen(navHostController: NavHostController) {
 
     var email by remember { mutableStateOf(TextFieldValue("")) }
-
     var password by remember { mutableStateOf(TextFieldValue("")) }
-
     val focusRequester = remember { FocusRequester() }
-
     val authViewModel = AuthViewModel()
     val firebaseUser by authViewModel.firebaseUser.observeAsState()
     val message by authViewModel.errorMessage.observeAsState()
-    val isLoading by authViewModel.showLoader.observeAsState(false)
 
     val context = LocalContext.current
 
@@ -79,7 +75,8 @@ fun LoginScreen(navHostController: NavHostController) {
         .fillMaxWidth()
         .padding(20.dp, 0.dp)
 
-    Box(modifier = Modifier.background(color = Color.Black)) {
+    Box(modifier = Modifier.background(color = Color.White)) {
+
 
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -87,8 +84,8 @@ fun LoginScreen(navHostController: NavHostController) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Welcome back,", style = TextStyle(
-                    color = Color.White,
+                text = "Welcome to NewMealApp,", style = TextStyle(
+                    color = Color.Blue,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Serif,

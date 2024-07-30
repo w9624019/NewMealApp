@@ -1,6 +1,5 @@
 package uk.ac.tees.mad.w9624019.newmealapp.model.response
 
-
 data class MealsCategoriesResponse(
     val categories: List<Category>,
 )
