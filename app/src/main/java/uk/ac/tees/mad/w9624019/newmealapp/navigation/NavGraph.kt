@@ -20,7 +20,7 @@ import uk.ac.tees.mad.w9624019.newmealapp.screens.SearchScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SettingScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.SplashScreen
 import uk.ac.tees.mad.w9624019.newmealapp.screens.UserProfileScreen
-import uk.ac.tees.mad.w9624019.newmealapp.ui.details.MealDetailsViewModel
+import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.details.MealDetailsViewModel
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.meals.MealsCategoriesScreen
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.details.MealDetailsScreen
 import uk.ac.tees.mad.w9624019.newmealapp.widgets.BottomNavbar

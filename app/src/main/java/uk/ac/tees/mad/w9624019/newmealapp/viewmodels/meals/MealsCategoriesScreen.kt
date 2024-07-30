@@ -34,15 +34,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import coil.compose.rememberAsyncImagePainter
 import uk.ac.tees.mad.w9624019.newmealapp.model.response.Category
-import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.details.MealDetailsScreen
-import uk.ac.tees.mad.w9624019.newmealapp.ui.details.MealDetailsViewModel
 
 @Composable
 fun MealsCategoriesScreen(navigationCallback: (String) -> Unit) {
@@ -57,32 +50,6 @@ fun MealsCategoriesScreen(navigationCallback: (String) -> Unit) {
     }
 }
 
-@Composable
-fun FoodzApp() {
-
-    val navigationController = rememberNavController()
-
-    NavHost(navController = navigationController, startDestination = "dest_list") {
-
-        composable(route = "dest_list") {
-            MealsCategoriesScreen { navigationMealID ->
-                navigationController.navigate(route = "dest_detail/$navigationMealID")
-            }
-        }
-
-        composable(
-            route = "dest_detail/{meal_category_id}",
-            arguments = listOf(navArgument(name = "meal_category_id") {
-                type = NavType.StringType
-            })
-        ) {
-            val viewModel: MealDetailsViewModel = viewModel()
-            MealDetailsScreen(viewModel.mealState.value)
-        }
-    }
-
-
-}
 
 @Composable
 fun MealCategory(meal: Category, navigationCallback: (String) -> Unit) {

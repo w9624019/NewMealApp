@@ -1,6 +1,5 @@
 package uk.ac.tees.mad.w9624019.newmealapp.screens
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement

@@ -16,7 +16,6 @@ class Constant {
 
         //firebase root nodes
         const val FIREBASE_STORAGE_ROOT = "users"
-
         val widthModifier = Modifier.fillMaxWidth()
 
     }

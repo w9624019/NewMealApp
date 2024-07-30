@@ -34,8 +34,6 @@ class AddThreadViewModel(val isFromSearch: Boolean = false, var uid: String? = n
     private val _userList = MutableLiveData<List<UserModel>>()
     val userList: LiveData<List<UserModel>> = _userList
 
-    private val _postChanges = MutableLiveData<Boolean>()
-    val postChanges: LiveData<Boolean> = _postChanges
 
     init {
         if (isFromSearch) {
@@ -147,17 +145,4 @@ class AddThreadViewModel(val isFromSearch: Boolean = false, var uid: String? = n
             _result.postValue(ResultModel("failed", "something went wrong"))
         }
     }
-
-    fun likeThread(uid: String, postId: String, likes: List<String>) {
-
-        val ref = firebaseFireStore.collection("post").document(postId).update("likes", likes)
-            .addOnSuccessListener {
-                _postChanges.postValue(true)
-                _result.postValue(ResultModel("success", "Thread liked successfully"))
-            }.addOnFailureListener {
-                _postChanges.postValue(false)
-                _result.postValue(ResultModel("failed", "something went wrong"))
-            }
-    }
-
 }

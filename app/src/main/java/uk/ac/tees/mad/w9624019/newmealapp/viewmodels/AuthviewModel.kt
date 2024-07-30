@@ -51,7 +51,6 @@ class AuthViewModel : ViewModel() {
     ) {
 
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
-
             saveDataToFirebase(
                 name,
                 username,
@@ -142,9 +141,4 @@ class AuthViewModel : ViewModel() {
             _errorMessage.postValue(it.message)
         }
     }
-
-    fun updateProfile() {
-        
-    }
-
 }

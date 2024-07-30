@@ -1,4 +1,4 @@
-package uk.ac.tees.mad.w9624019.newmealapp.ui.details
+package uk.ac.tees.mad.w9624019.newmealapp.viewmodels.details
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
@@ -18,6 +18,5 @@ class MealDetailsViewModel(
         mealState.value = repository.getMeal(mealID)
 
     }
-
 
 }

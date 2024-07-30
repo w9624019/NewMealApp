@@ -1,4 +1,4 @@
-package uk.ac.tees.mad.w9624019.newmealapp.ui.theme
+package uk.ac.tees.mad.w9624019.newmealapp.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,6 +1,5 @@
 package uk.ac.tees.mad.w9624019.newmealapp.screens
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -67,7 +66,7 @@ fun SplashScreen(controller: NavHostController) {
         )
 
         Text(
-            text = "Developed by Siva",
+            text = "",
             Modifier
                 .layoutId("text")
                 .fillMaxWidth(),

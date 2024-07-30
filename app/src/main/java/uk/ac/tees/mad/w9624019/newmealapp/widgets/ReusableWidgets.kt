@@ -1,9 +1,6 @@
 package uk.ac.tees.mad.w9624019.newmealapp.widgets
 
 import android.net.Uri
-import android.os.Build
-import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,11 +16,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
@@ -54,13 +48,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
 import uk.ac.tees.mad.w9624019.newmealapp.R
-import uk.ac.tees.mad.w9624019.newmealapp.model.ThreadPostModel
 import uk.ac.tees.mad.w9624019.newmealapp.model.UserModel
-import uk.ac.tees.mad.w9624019.newmealapp.navigation.Routes
-import uk.ac.tees.mad.w9624019.newmealapp.util.Util
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable

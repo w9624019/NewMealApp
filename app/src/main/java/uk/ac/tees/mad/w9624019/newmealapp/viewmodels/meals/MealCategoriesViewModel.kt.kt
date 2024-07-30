@@ -33,9 +33,4 @@ class MealCategoriesViewModel(private  val repository: MealsRepository = MealsRe
     private suspend fun getMealsFromRepo():List<Category> {
          return repository.getMeals().categories
     }
-
-//    override fun onCleared() {
-//        super.onCleared()
-//        mealsJob.cancel()
-//    }
 }

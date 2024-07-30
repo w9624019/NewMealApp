@@ -28,10 +28,6 @@ import uk.ac.tees.mad.w9624019.newmealapp.model.response.Category
 
 @Composable
 fun MealDetailsScreen(meal: Category?) {
-//    var isExpanded by remember { mutableStateOf(false) }
-//    val imageSizeDp: Dp by animateDpAsState(targetValue = if (isExpanded) 200.dp else 100.dp,
-//        label = ""
-//    )
 
     // we have created enum for managing the states based on the transition
     var profilePictureState by remember { mutableStateOf(MealProfilePictureState.Normal) }
