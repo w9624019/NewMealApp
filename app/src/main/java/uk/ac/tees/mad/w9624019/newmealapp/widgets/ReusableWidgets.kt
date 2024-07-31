@@ -59,7 +59,7 @@ fun CustomTextFiled(
         onValueChange = callBack,
         label = { Text(text = label) },
         modifier = modifier,
-        textStyle = TextStyle(color = Color.White),
+        textStyle = TextStyle(color = Color.Black),
         keyboardOptions = KeyboardOptions.Default.copy(imeAction = if (isDoneOption) ImeAction.Done else ImeAction.Next),
         keyboardActions = KeyboardActions(
             onDone = {

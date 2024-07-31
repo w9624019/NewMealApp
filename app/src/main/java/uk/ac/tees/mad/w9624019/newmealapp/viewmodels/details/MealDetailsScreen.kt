@@ -125,7 +125,7 @@ fun MealDetailsScreen(meal: Category?) {
 
                 .padding(10.dp)
         ) {
-            Text("Change state of meal profile picture")
+            Text("Change state of meal picture")
         }
 
 
