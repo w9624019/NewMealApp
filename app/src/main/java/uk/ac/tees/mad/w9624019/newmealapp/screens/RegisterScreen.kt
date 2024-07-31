@@ -21,7 +21,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -30,14 +32,23 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -49,6 +60,7 @@ import uk.ac.tees.mad.w9624019.newmealapp.util.Util
 import uk.ac.tees.mad.w9624019.newmealapp.validation.Validation
 import uk.ac.tees.mad.w9624019.newmealapp.viewmodels.AuthViewModel
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun RegisterScreen(navHostController: NavHostController) {
 
@@ -111,6 +123,37 @@ fun RegisterScreen(navHostController: NavHostController) {
     }
 
     Box(modifier = Modifier.background(color = Color.White)) {
+        val constraints = ConstraintSet {
+            val imageRef = createRefFor("image")
+            val text = createRefFor("text")
+            val topGuidLine = createGuidelineFromTop(0.1f)
+            val bottomGuidLine = createGuidelineFromBottom(0.1f)
+
+            constrain(imageRef) {
+                top.linkTo(topGuidLine)
+                bottom.linkTo(bottomGuidLine)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+
+            constrain(text) {
+                top.linkTo(imageRef.bottom)
+                bottom.linkTo(parent.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+
+        }
+        ConstraintLayout(constraints, modifier = Modifier.fillMaxSize()) {
+            Image(
+                painter = painterResource(id = R.drawable.logo),
+                contentDescription = "app_logo",
+                modifier = Modifier
+                    .height(100.dp)
+                    .width(100.dp)
+                    .layoutId("image"),
+            )
+        }
 
         Column(
             modifier = Modifier
